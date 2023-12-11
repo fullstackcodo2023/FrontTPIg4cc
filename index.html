@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tabla_productos.css">
-    <title>Tabla Recetas</title>
+    <link rel="stylesheet" href="../css/tabla_productos.css">
+    <title>Document</title>
 </head>
 <body>
 
@@ -16,12 +16,12 @@
             <div id="app" >
 
                 <!-- Botón Nuevo -->
-                <a class="nuevo" href="templates/ingresar_producto.html">Nuevo</a>
+                <a class="nuevo" href="ingresar_producto.html">Nuevo</a>
 
-                <section v-if="error">Lo sentimos se produjo un error...</section>
+                <section v-if="error">Lo sentimos se produjo un error</section>
                 <section v-else>
                     <section v-if="cargando">
-                        <p>Cargando ........</p>
+                        <p>Cargando .....</p>
 
                     </section>
 
@@ -32,34 +32,32 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Autor</th>
+                                        <th>Título receta</th>
                                         <th>Receta</th>
-                                        <th>Dificultad</th>
-                                        <th>Duración</th>
-                                        <th>Ingredientes</th>
-                                        <th>Pasos</th>
+                                        <th>Notas</th>
                                         <th>Imagen</th>
-                                        <th></th><!-- columna del botón Eliminar -->
-                                        <th></th><!-- columna del botón Editar -->
+                                        <th>Acciones</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    
-                                    <tr v-for="receta in recetas">
-                                        <td >{{receta.id}}</td>
-                                        <td>{{receta.receta}}</td>
-                                        <td>{{receta.dificultad}}</td>
-                                        <td>{{receta.duracion}}</td>
-                                        <td>{{receta.ingredientes}}</td>
-                                        <td>{{receta.pasos}}</td>
-                                        
+                                    <tr v-for="producto in productos">
+                                        <td >{{producto.id}}</td>
+                                        <td>{{producto.nombre}}</td>
+                                        <td>{{producto.titulo}}</td>
+                                        <td>{{producto.receta}}</td>
+                                        <td>{{producto.notas}}</td>
                                         <td>
-                                            <img :src="receta.imagen" alt="">
+                                            <img :src="producto.imagen" alt="">
                                         </td>
                                         <td>
-                                            <button type="button"  v-on:click="eliminar(receta.id)">Eliminar</button>
+                                            <button type="button"  v-on:click="eliminar(producto.id)">Eliminar</button>
                                         </td>
                                         <td>
                                             <a class="boton" :href="'../templates/editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+'&titulo=' +producto.titulo+'&receta=' +producto.receta+'&notas=' +producto.notas+'&imagen=' +producto.imagen">Editar</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -76,7 +74,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <script src="js/tabla_producto.js"></script>
-    <script src="js/header.js"></script>
+    <script src="../js/tabla_productos.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 </html>
