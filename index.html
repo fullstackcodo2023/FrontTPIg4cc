@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tabla_recetas.css">
+    <link rel="stylesheet" href="css/tabla_productos.css">
     <title>Tabla Recetas</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
             <div id="app" >
 
                 <!-- Botón Nuevo -->
-                <a class="nuevo" href="templates/ingresar_receta.html">Nuevo</a>
+                <a class="nuevo" href="templates/ingresar_producto.html">Nuevo</a>
 
                 <section v-if="error">Lo sentimos se produjo un error...</section>
                 <section v-else>
@@ -59,8 +59,7 @@
                                             <button type="button"  v-on:click="eliminar(receta.id)">Eliminar</button>
                                         </td>
                                         <td>
-                                            <a class="boton" :href="'templates/editar_receta.html?id='+ receta.id+'&receta=' +receta.receta+'&dificultad='+ receta.dificultad+'&duracion=' +receta.duracion+'&ingredientes=' +receta.ingredientes+'&pasos=' +receta.pasos+'&imagen=' +receta.imagen">Editar</a>
-                                        </td>
+                                            <a class="boton" :href="'../templates/editar_producto.html?id='+ producto.id+'&nombre=' +producto.nombre+'&titulo=' +producto.titulo+'&receta=' +producto.receta+'&notas=' +producto.notas+'&imagen=' +producto.imagen">Editar</a>
                                     </tr>
                                 </tbody>
                             </table>
@@ -77,7 +76,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <script src="js/tabla_recetas.js"></script>
+    <script src="js/tabla_producto.js"></script>
     <script src="js/header.js"></script>
 </body>
 </html>
