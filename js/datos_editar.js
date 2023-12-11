@@ -13,11 +13,12 @@ let datos = new URLSearchParams(cadena);
 let resultado = {};
 
 // Iterar sobre los parámetros y guardar los nombres y valores en el objeto resultado
-for (const [nombre, valor] of datos) {
-    resultado[nombre] = valor;
-    resultado[titulo] = valor;
+for (const [receta, valor] of datos) {
     resultado[receta] = valor
-    resultado[notas] = valor
+    resultado[dificultad] = valor
+    resultado[duracion] = valor
+    resultado[ingredientes] = valor
+    resultado[pasos] = valor
     resultado[imagen] = valor
 }
 
@@ -27,8 +28,9 @@ for (const [nombre, valor] of datos) {
 
 // Procedimiento para mostrar los datos a editar en el formulario de edición
 document.getElementById("id").value = resultado["id"]
-document.getElementById("nombre").value = resultado["nombre"]
-document.getElementById("titulo").value = resultado["titulo"]
 document.getElementById("receta").value = resultado["receta"]
-document.getElementById("notas").value = resultado["notas"]
+document.getElementById("dificultad").value = resultado["dificultad"]
+document.getElementById("duracion").value = resultado["duracion"]
+document.getElementById("ingredientes").value = resultado["ingredientes"]
+document.getElementById("pasos").value = resultado["pasos"]
 document.getElementById("imagen").value = resultado["imagen"]
