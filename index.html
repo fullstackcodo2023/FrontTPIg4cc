@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tabla_recetas.css">
+    <title>Tabla Recetas</title>
+</head>
+<body>
+
+    <header id="header"></header>
+
+    <main>
+
+        <section class="container">
+            <div id="app" >
+
+                <!-- Botón Nuevo -->
+                <a class="nuevo" href="templates/ingresar_receta.html">Nuevo</a>
+
+                <section v-if="error">Lo sentimos se produjo un error...</section>
+                <section v-else>
+                    <section v-if="cargando">
+                        <p>Cargando ........</p>
+
+                    </section>
+
+                    <section v-else>
+                        
+                        <div >
+                            <table class="tabla">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Receta</th>
+                                        <th>Dificultad</th>
+                                        <th>Duración</th>
+                                        <th>Ingredientes</th>
+                                        <th>Pasos</th>
+                                        <th>Imagen</th>
+                                        <th></th><!-- columna del botón Eliminar -->
+                                        <th></th><!-- columna del botón Editar -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    <tr v-for="receta in recetas">
+                                        <td >{{receta.id}}</td>
+                                        <td>{{receta.receta}}</td>
+                                        <td>{{receta.dificultad}}</td>
+                                        <td>{{receta.duracion}}</td>
+                                        <td>{{receta.ingredientes}}</td>
+                                        <td>{{receta.pasos}}</td>
+                                        
+                                        <td>
+                                            <img :src="receta.imagen" alt="">
+                                        </td>
+                                        <td>
+                                            <button type="button"  v-on:click="eliminar(receta.id)">Eliminar</button>
+                                        </td>
+                                        <td>
+                                            <a class="boton" :href="'templates/editar_receta.html?id='+ receta.id+'&receta=' +receta.receta+'&dificultad='+ receta.dificultad+'&duracion=' +receta.duracion+'&ingredientes=' +receta.ingredientes+'&pasos=' +receta.pasos+'&imagen=' +receta.imagen">Editar</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="js/tabla_recetas.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>
